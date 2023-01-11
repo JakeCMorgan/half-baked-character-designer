@@ -21,7 +21,8 @@ let middleCount = 0;
 let bottomCount = 0;
 
 // set state for all of the character's catchphrases
-let catchphrases = ['hello world!', 'holy guacamole batman!', 'its not that deep'];
+// let catchphrases = ['hello world!', 'holy guacamole batman!', 'its not that deep'];
+let catchphrases = [''];
 
 headDropdown.addEventListener('change', () => {
     // get the value of the head dropdown
@@ -77,7 +78,7 @@ function displayCatchphrases() {
     catchphrasesEl.textContent = '';
     // loop through each catchphrase in state
     // and for each catchphrase
-    for (let catchphrase of catchphrase) {
+    for (let catchphrase of catchphrases) {
         // create an HTML element with the catchphrase as its text content
         const newElement = document.createElement('p');
         newElement.classList.add('catchphrase');
