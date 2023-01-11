@@ -11,7 +11,9 @@ const bottomImage = document.getElementById('bottom-image');
 const catchphraseInput = document.getElementById('catchphrase-input');
 const catchphraseButton = document.getElementById('catchphrase-button');
 const catchphrasesEl = document.getElementById('catchphrases');
-const reportEl = document.getElementById('report');
+const headReportEl = document.getElementById('head-report');
+const middleReportEl = document.getElementById('middle-report');
+const bottomReportEl = document.getElementById('bottom-report');
 
 // set state for how many times the user changes the head, middle, and bottom
 let headCount = 0;
@@ -27,22 +29,31 @@ headDropdown.addEventListener('change', () => {
     // increment the head change count state
     headCount++;
     // update the dom for the head (use style.backgroundImage on the headEl div instead of trying to set the .src -- it's NOT an img tag!)
+
     // update the stats to show the new count (call displayStats() to do this work)
     displayStats();
 });
 
 middleDropdown.addEventListener('change', () => {
     // get the value of the middle dropdown
+    const userChoice = middleDropdown.value;
     // increment the middle change count state
+    middleCount++;
     // update the dom for the middle (NOTE: use style.backgroundImage on the middleEl div instead of trying to set the .src -- it's NOT an img tag!)
+
     // update the stats to show the new count (call displayStats() to do this work)
+    displayStats();
 });
 
 bottomDropdown.addEventListener('change', () => {
     // get the value of the bottom dropdown
+    const userChoice = bottomDropdown.value;
     // increment the bottom change count state
+    bottomCount++;
     // update the dom for the bottom (NOTE use style.backgroundImage on the bottomEl div instead of trying to set the .src -- it's NOT an img tag!)
+
     // update the stats to show the new count (call displayStats() to do this work)
+    displayStats();
 });
 
 catchphraseButton.addEventListener('click', () => {
@@ -54,7 +65,9 @@ catchphraseButton.addEventListener('click', () => {
 
 function displayStats() {
     // text content of the reportEl to tell the user how many times they've changed each piece of the state
-    reportEl.textContent = `${headCount}`;
+    headReportEl.textContent = `${headCount}`;
+    middleReportEl.textContent = `${middleCount}`;
+    bottomReportEl.textContent = `${bottomCount}`;
 }
 
 function displayCatchphrases() {
